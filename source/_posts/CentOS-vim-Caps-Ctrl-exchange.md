@@ -1,9 +1,6 @@
 ---
 title: vim技巧
-subtitle: centos系统下键盘大小写切换键与Ctrl互换
 date: 2016-09-28 12:00:00
-author: xitang
-header-img: img/post-bg-2016.jpg
 categories:
 - 技术
 tags:

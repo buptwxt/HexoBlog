@@ -1,9 +1,6 @@
 ---
 title: cJSON库介绍
-subtitle: 使用c语言操作JSON格式数据之cJSON
 date: 2017-09-27 15:32:00
-author: xitang
-header-img: img/post-bg-2016.jpg
 categories:
 - 技术
 tags:

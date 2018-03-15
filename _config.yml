@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 喜糖的博客
+title: Wang
 subtitle: 喜糖的博客
 description: 喜糖的博客
-author: Wang
+author: 喜糖
 language: zh-Hans
 timezone:
 
@@ -78,7 +78,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: ssh://git@github.com:buptwxt/buptwxt.github.io.git
+  repository: https://github.com/buptwxt/buptwxt.github.io.git
   branch: master
 
 # RSS Feed

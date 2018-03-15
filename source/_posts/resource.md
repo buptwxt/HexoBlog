@@ -1,9 +1,6 @@
 ---
 title: 常去网站
-subtitle: 搜索 社区 大牛 娱乐
 date: 2016-10-09 07:00:00
-author: xitang
-header-img: img/post-bg-2016.jpg
 categories:
 - 技术
 tags:

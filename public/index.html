@@ -264,6 +264,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/18/Linux-进程基本知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喜糖">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/18/Linux-进程基本知识/" itemprop="url">Linux 进程基本知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T23:04:12+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Linux-进程基本知识"><a href="#Linux-进程基本知识" class="headerlink" title="Linux 进程基本知识"></a>Linux 进程基本知识</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。</p>
+<h2 id="进程相关的接口函数"><a href="#进程相关的接口函数" class="headerlink" title="进程相关的接口函数"></a>进程相关的接口函数</h2><p>学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。</p>
+<h3 id="创建进程"><a href="#创建进程" class="headerlink" title="创建进程"></a>创建进程</h3><h4 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h4><p>创建一个子进程</p>
+<ol>
+<li>最大特征是调用一次，返回两次。父进程中返回正数进程号码，子进程返回0，然后两个进程继续向后执行</li>
+<li>子进程获得父进程的栈，数据段，堆，和执行文本</li>
+<li>子进程共享父进程打开的文件句柄</li>
+</ol>
+<h4 id="vfork"><a href="#vfork" class="headerlink" title="vfork"></a>vfork</h4><p>不复制虚拟内存和页表，共享父进程内存<br>子进程调用_exit或者exec之前，父进程暂停执行</p>
+<h4 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h4><p>创建新进程，程序起点不是调用点，而是func参数指定的函数</p>
+<h4 id="execve"><a href="#execve" class="headerlink" title="execve"></a>execve</h4><p>一系列函数，将当前进程的资源全部替换为新程序所需资源</p>
+<h4 id="system"><a href="#system" class="headerlink" title="system"></a>system</h4><p>执行任何linux命令</p>
+<h3 id="获取进程状态"><a href="#获取进程状态" class="headerlink" title="获取进程状态"></a>获取进程状态</h3><p>通过SIGCHLD信号或者wait系统调用获取进程状态信息</p>
+<h3 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h3><p>获取任意子进程终止状态信息<br>一直阻塞，直到某一个子进程终止<br>status参数返回子进程终止信息<br>内核将所有子进程追加进程CPU时间和资源使用数据<br>子进程ID作为wait结果返回<br>不能处理子进程因信号停止或是停止子进程因信号恢复运行</p>
+<h3 id="waitpid"><a href="#waitpid" class="headerlink" title="waitpid"></a>waitpid</h3><p>比wait更加精确<br>增加了pid_t参数，能够检测指定的进程或者进程组；以及option选项，检测因信号停止、运行等状态的进程<br>status返回值（宏测试）可以区分子进程事件<br>waitid、wait3、wait4更加丰富的接口</p>
+<h3 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h3><h4 id="exit-和-exit"><a href="#exit-和-exit" class="headerlink" title="exit 和 _exit"></a>exit 和 _exit</h4><p>异常终止或者正常终止<br>exit 调用退出处理函数，刷新缓冲区，执行_exit系统调用<br>main函数返回或者执行到结尾<br>进程终止会执行一堆清理工作，关闭文件描述符等<br>on_exit atexit注册退出处理函数，按照注册顺序，逆序调用</p>
+<p>行缓冲，块缓冲，fork之前 fflush 刷新缓冲，或者setvbuf、 setbuf 关闭缓冲<br>write会将数据直接传递给内核缓冲区，fork不会复制这一缓冲区</p>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><h4 id="写时拷贝技术"><a href="#写时拷贝技术" class="headerlink" title="写时拷贝技术"></a>写时拷贝技术</h4><p>fork进程的时候，并不是一开始就copy父进程的所有资源到子进程，而是当父子进程需要修改资源的时候，再按需copy父进程中的资源到子进程</p>
+<h4 id="竞态"><a href="#竞态" class="headerlink" title="竞态"></a>竞态</h4><p>fork后是父进程还是子进程先执行，没有确定关系，需要采用同步技术（不能简单靠sleep），常见的同步技术有：信号量，文件锁，管道，信号。</p>
+<h4 id="孤儿进程和僵尸进程"><a href="#孤儿进程和僵尸进程" class="headerlink" title="孤儿进程和僵尸进程"></a>孤儿进程和僵尸进程</h4><p>子进程的父进程终止后，该子进程为孤儿进程，init进程接管该孤儿进程<br>子进程终止后，如果父进程没有wait，那么该子进程为僵尸进程。内核会保留子进程ID、终止状态、资源使用数据等信息，父进程如果一直不wait，这些数据会一直存在。通过信号都不能杀死僵尸进程。</p>
+<!--## 注意事项-->
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/15/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,7 +457,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T21:14:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T22:54:33+08:00">
                 2018-03-15
               </time>
             
@@ -888,7 +1050,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -910,7 +1072,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

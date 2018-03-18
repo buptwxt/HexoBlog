@@ -480,18 +480,16 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/15/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -630,41 +628,14 @@
 
       
         
-          
-            <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键词/检索词：c, JSON，接口，数据交换, 跨平台</span><br></pre></td></tr></table></figure></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="JSON介绍"><a href="#JSON介绍" class="headerlink" title="JSON介绍"></a>JSON介绍</h3><p>JSON像XML，但是更苗条，是一个轻量级数据交换格式。JSON格式数据对于人来说，便于读写；对于机器来说，便于解析和生成。JSON是一个完全独立于语言的文本格式，但使用更加方便，使用了与C家族语言程序员所熟悉的格式，这使得JSON成为了一个理想的数据交换语言。可以使用JSON格式传输数据，存储和表示程序状态。</p>
-<h3 id="cJSON介绍"><a href="#cJSON介绍" class="headerlink" title="cJSON介绍"></a>cJSON介绍</h3><p>cJSON旨在成为一款最简单JSON格式数据解析器，便于完成工作。它由单个c源文件cJSON.c和头文件 cJSON.h组成。还包括一个测试文件test.c。在自己的项目中导入cJSON.h头文件和cJSON.c源文件，能够轻松的解析JSON格式数据和生成JSON格式数据。</p>
-<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p> 验证可行性<br>测试代码是否可用，编译出可执行文件test， 由于cJSON.c依赖数学库libm.so，所以编译方式如下：<br>编译出可执行文件test<br>gcc cJSON.c test.c -o test -lm<br>执行可执行文件<br>./test<br>可以修改test.c文件main函数，控制测试代码输入、输出数据<br>生成可执行程序，执行可执行程序查看到期望输出，说明代码完整</p>
-<h3 id="项目集成"><a href="#项目集成" class="headerlink" title="项目集成"></a>项目集成</h3><p>当项目中需要涉及到解析JSON格式数据或者生成JSON格式数据时，有两种使用方式，第一、将cJSON.c和cJSON.h放到项目源码文件夹中；第二、将cJSON.c和cJSON.h放到一个单独的文件家中，并添加makefile文件，以库的形式供其函数调用。<br>需要使用cJSON提供的功能时，建议采用方式一，直接引入cJSON.c和cJSON.h源文件到工程源码中。</p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>cJSON 节点结构是cJSON库中重要的一个元素，cJSON库将JSON格式字符串数据转化为由一个个cJSON节点表示的树形结构，next指向同级目录的下一个节点，prev指向同级目录前一个节点，child指向下级目录第一个节点；也可以将由cJSON树形结构，转化为JSON格式串，便于在网络中传输JSON格式数据。<br>cJSON节点数据结构</p>
-<figure class="highlight plain"><figcaption><span>struct cJSON &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    struct cJSON *next,*prev;</span><br><span class="line">    struct cJSON *child;</span><br><span class="line">    int type; </span><br><span class="line">    char *valuestring; </span><br><span class="line">    int valueint; </span><br><span class="line">    double valuedouble; </span><br><span class="line">    char *string;</span><br><span class="line">&#125; cJSON;</span><br></pre></td></tr></table></figure>
-<p>一个cJSON节点存储一个JSON格式key:value对，其中<br>key存储在string中<br>value存储在valuestring或者valueint、valuedouble中。<br>type 存储数据类型，包括: “False、True、NULL、Number、String、Array、Object”<br>child 存储子节点，只有Array和Object类型才有子节点，根节点是一个Object类型<br>next存储后一个节点<br>prev存储前一个节点</p>
-<p>例如：<br>JSON格式字符串如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	  &quot;name&quot;:&quot;Jack (\&quot;Bee\&quot;) Nimble&quot;,</span><br><span class="line">	  &quot;format&quot;:</span><br><span class="line">	  &#123;</span><br><span class="line">		    &quot;type&quot;：“rect”,</span><br><span class="line">		    &quot;width&quot;: 1920,</span><br><span class="line">		    &quot;height&quot;: 1080,</span><br><span class="line">		    &quot;interlace&quot;: false,</span><br><span class="line">		    &quot;frame rate&quot;: 24 </span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>转化为对应的cJSON树形结构为：</p>
-<ul>
-<li>&lt;-  代表prev</li>
-<li>-&gt;  代表next</li>
-<li>|    代表child<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NULL&lt;-root-&gt; NULL</span><br><span class="line">       |</span><br><span class="line">NULL&lt;-name&lt; -----------------&gt; format-&gt;NULL</span><br><span class="line">       |                           |</span><br><span class="line">      NULL                NULL  &lt;- type &lt;-&gt; width &lt;-&gt;  height &lt;-&gt; interlace &lt;-&gt; framerate-&gt;NULL</span><br><span class="line">                                    |           |           |          |          |</span><br><span class="line">                                  NULL       NULL       NULL        NULL          NULL</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>cJSON能够在两种模式下使用，Auto和Manual，建议使用Auto模式，Auto模式下能够实现字符串到cJSON格式直接转化，转化后再获取对应key的value值。</p>
-<h2 id="常用接口说明"><a href="#常用接口说明" class="headerlink" title="常用接口说明"></a>常用接口说明</h2><p>接口参数参考cJSON.h头文件<br>cJSON_Parse： 字符串转化为cJSON树型结构<br>cJSON_GetObjectItem：获取key对应的cJSON对象<br>cJSON_Print：将cJSON树对象转化为JSON格式字符串<br>cJSON_Delete：清除cJSON树型结构对象<br>cJSON_CreateObject：创建一个cJSON节点<br>AddItemToObject：添加Object对象到cJSON树结构<br>AddNumberToObject：添加value为整型格式cJSON节点<br>AddFalseToObject：添加value为Bool格式cJSON节点</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="解析JSON格式数据"><a href="#解析JSON格式数据" class="headerlink" title="解析JSON格式数据"></a>解析JSON格式数据</h3><ol>
-<li>转变为cJSON结构<br>char *my_json_string 指向一个字符串，该字符串内容为上面的JSON格式数据，获取cJSON格式数据：<figure class="highlight plain"><figcaption><span>*root </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2. 获取&quot;frame rate&quot;数据，并存储于framerate</span><br><span class="line">```cJSON *format = cJSON_GetObjectItem(root, &quot;format&quot;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight plain"><figcaption><span>frame </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3. 修改“frame rate”值为25</span><br><span class="line">```cJSON_GetObjectItem(format, &quot;frame rate&quot;)-&gt;valueint = 25;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>将cJSON格式再转换为string</p>
-<figure class="highlight plain"><figcaption><span>*rendered </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5. 清除资源</span><br><span class="line">```cJSON_Delete(root);</span><br></pre></td></tr></table></figure>
-<p>注意：在解引用数据时应该判断指针是否合法</p>
-</li>
-</ol>
-<h3 id="生成JSON格式数据"><a href="#生成JSON格式数据" class="headerlink" title="生成JSON格式数据"></a>生成JSON格式数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cJSON *root,*fmt; </span><br><span class="line">root=cJSON_CreateObject();</span><br><span class="line">cJSON_AddItemToObject(root, &quot;name&quot;, cJSON_CreateString(&quot;Jack (\&quot;Bee\&quot;) Nimble&quot;));</span><br><span class="line">cJSON_AddItemToObject(root, &quot;format&quot;, fmt=cJSON_CreateObject());</span><br><span class="line">cJSON_AddStringToObject(fmt,&quot;type&quot;, &quot;rect&quot;);</span><br><span class="line">cJSON_AddNumberToObject(fmt,&quot;width&quot;, 1920);</span><br><span class="line">cJSON_AddNumberToObject(fmt,&quot;height&quot;, 1080);</span><br><span class="line">cJSON_AddFalseToObject (fmt,&quot;interlace&quot;);</span><br><span class="line">cJSON_AddNumberToObject(fmt,&quot;frame rate&quot;,   24);</span><br><span class="line">char *pBuf = cJSON_Print(root); // 转化为字符串</span><br></pre></td></tr></table></figure>
-<p>pBuf指向的字符串可以用于网络传输</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.json.org" target="_blank" rel="noopener">JSON官方介绍</a><br><a href="https://www.github.com" target="_blank" rel="noopener">cJSON 源码来源</a></p>
-
-          
+          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键词/检索词：c, JSON，接口，数据交换, 跨平台</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/27/cJSON库基础介绍/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -803,13 +774,15 @@
 
       
         
-          
-            <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1、入口"><a href="#1、入口" class="headerlink" title="1、入口"></a>1、入口</h3><p><a href="https://www.google.com" target="_blank" rel="noopener">谷歌</a><br><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
-<h3 id="2、涨姿势"><a href="#2、涨姿势" class="headerlink" title="2、涨姿势"></a>2、涨姿势</h3><p><a href="https://www.douban.com" target="_blank" rel="noopener">豆瓣</a><br><a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a><br><a href="https://bbs.byr.cn" target="_blank" rel="noopener">北邮人论坛</a></p>
-<h3 id="3、知识"><a href="#3、知识" class="headerlink" title="3、知识"></a>3、知识</h3><p><a href="http://www.coolshell.cn" target="_blank" rel="noopener">酷壳</a><br><a href="http://mindhacks.cn" target="_blank" rel="noopener">MIND HACKS</a><br><a href="http://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a><br><a href="http://www.w3school.com.cn" target="_blank" rel="noopener">w3c</a></p>
-<h3 id="4、杂谈"><a href="#4、杂谈" class="headerlink" title="4、杂谈"></a>4、杂谈</h3><p><a href="http://www.iqiyi.com/a_19rrgifngp.html" target="_blank" rel="noopener">晓松奇谈</a><br><a href="http://i.youku.com/i/UNTEzNTY1OTgw/videos" target="_blank" rel="noopener">罗辑思维</a><br><a href="http://www.mgtv.com/v/1/290349/index.html?cxid=95kqkw8n6" target="_blank" rel="noopener">天天向上</a><br><a href="http://www.bilibili.com" target="_blank" rel="noopener">bilibili</a></p>
-
-          
+          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1、入口"><a href="#1、入口" class="headerlink" title="1、入口"></a>1、入口</h3><p><a href="https://www.google.com" target="_blank" rel="noopener">谷歌</a><br><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+<h3 id="2、涨姿势"><a href="#2、涨姿势" class="headerlink" title="2、涨姿势"></a>2、涨姿势</h3><p><a href="https://www.douban.com" target="_blank" rel="noopener">豆瓣</a><br><a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a><br><a href="https://bbs.byr.cn" target="_blank" rel="noopener">北邮人论坛</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/09/resource/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -948,13 +921,14 @@
 
       
         
-          
-            <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><a href="https://book.douban.com/subject/25869486/" target="_blank" rel="noopener">《Vim实用技巧》</a>这本书中提到了好多vim下神技，这些技能大量的依赖ctrl按键与其他按键的组合，所以有必要在一个顺手的位置方便操作ctrl按键。大小写按键并不常用，而且占据了一个有利的位置，所以建议vim用户将ctrl按键和大小写切换按键互换。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">!</span><br><span class="line">!Swap Caps_Lock and Control_L</span><br><span class="line">!</span><br><span class="line">remove Lock = Caps_Lock</span><br><span class="line">remove Control = Control_L</span><br><span class="line">keysym Control_L = Caps_Lock</span><br><span class="line">keysym Caps_Lock = Control_L</span><br><span class="line">add Lock = Caps_Lock</span><br><span class="line">add Control = Control_L</span><br></pre></td></tr></table></figure>
-<p>将这段代码保存为文件.Xmodmap，放置在任何目录下，<br>在终端再执行下面这条命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap .Xmodmap</span><br></pre></td></tr></table></figure>
-
-          
+          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><a href="https://book.douban.com/subject/25869486/" target="_blank" rel="noopener">《Vim实用技巧》</a>这本书中提到了好多vim下神技，这些技能大量的依赖ctrl按键与其他按键的组合，所以有必要在一个顺手的位置方便操作ctrl按键。大小写按键并不常用，而且占据了一个有利的位置，所以建议vim用户将ctrl按键和大小写切换按键互换。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/28/CentOS-vim-Caps-Ctrl-exchange/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

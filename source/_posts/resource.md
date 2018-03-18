@@ -18,6 +18,7 @@ tags:
 [豆瓣](https://www.douban.com)
 [知乎](https://www.zhihu.com)
 [北邮人论坛](https://bbs.byr.cn)
+<!--more-->
 	
 ### 3、知识
 [酷壳](http://www.coolshell.cn)

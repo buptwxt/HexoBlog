@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Wang">
 <meta property="og:description" content="正文JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。1关键词/检索词：c, JSON，接口，数据交换,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T14:40:34.000Z">
+<meta property="og:updated_time" content="2018-03-18T15:15:28.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cJSON库介绍">
 <meta name="twitter:description" content="正文JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。1关键词/检索词：c, JSON，接口，数据交换,">
@@ -355,6 +355,7 @@
 
       
         <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键词/检索词：c, JSON，接口，数据交换, 跨平台</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="JSON介绍"><a href="#JSON介绍" class="headerlink" title="JSON介绍"></a>JSON介绍</h3><p>JSON像XML，但是更苗条，是一个轻量级数据交换格式。JSON格式数据对于人来说，便于读写；对于机器来说，便于解析和生成。JSON是一个完全独立于语言的文本格式，但使用更加方便，使用了与C家族语言程序员所熟悉的格式，这使得JSON成为了一个理想的数据交换语言。可以使用JSON格式传输数据，存储和表示程序状态。</p>
 <h3 id="cJSON介绍"><a href="#cJSON介绍" class="headerlink" title="cJSON介绍"></a>cJSON介绍</h3><p>cJSON旨在成为一款最简单JSON格式数据解析器，便于完成工作。它由单个c源文件cJSON.c和头文件 cJSON.h组成。还包括一个测试文件test.c。在自己的项目中导入cJSON.h头文件和cJSON.c源文件，能够轻松的解析JSON格式数据和生成JSON格式数据。</p>
 <h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p> 验证可行性<br>测试代码是否可用，编译出可执行文件test， 由于cJSON.c依赖数学库libm.so，所以编译方式如下：<br>编译出可执行文件test<br>gcc cJSON.c test.c -o test -lm<br>执行可执行文件<br>./test<br>可以修改test.c文件main函数，控制测试代码输入、输出数据<br>生成可执行程序，执行可执行程序查看到期望输出，说明代码完整</p>

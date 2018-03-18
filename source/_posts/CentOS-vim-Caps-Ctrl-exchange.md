@@ -11,6 +11,8 @@ tags:
 ## 正文
 [《Vim实用技巧》](https://book.douban.com/subject/25869486/)这本书中提到了好多vim下神技，这些技能大量的依赖ctrl按键与其他按键的组合，所以有必要在一个顺手的位置方便操作ctrl按键。大小写按键并不常用，而且占据了一个有利的位置，所以建议vim用户将ctrl按键和大小写切换按键互换。
 
+<!--more-->
+
 ```
 !
 !Swap Caps_Lock and Control_L
@@ -28,3 +30,5 @@ add Control = Control_L
 ```
 xmodmap .Xmodmap
 ```
+
+

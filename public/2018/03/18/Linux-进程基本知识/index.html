@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。 进程相关的接口函数学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。">
+<meta name="description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
 <meta name="keywords" content="Linux,进程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 进程基本知识">
 <meta property="og:url" content="http://buptwxt.github.io/2018/03/18/Linux-进程基本知识/index.html">
 <meta property="og:site_name" content="Wang">
-<meta property="og:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。 进程相关的接口函数学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。">
+<meta property="og:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T15:05:34.633Z">
+<meta property="og:updated_time" content="2018-03-18T15:11:50.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 进程基本知识">
-<meta name="twitter:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。 进程相关的接口函数学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。">
+<meta name="twitter:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
 
 
 
@@ -355,6 +355,7 @@
 
       
         <h1 id="Linux-进程基本知识"><a href="#Linux-进程基本知识" class="headerlink" title="Linux 进程基本知识"></a>Linux 进程基本知识</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。</p>
+<a id="more"></a>
 <h2 id="进程相关的接口函数"><a href="#进程相关的接口函数" class="headerlink" title="进程相关的接口函数"></a>进程相关的接口函数</h2><p>学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。</p>
 <h3 id="创建进程"><a href="#创建进程" class="headerlink" title="创建进程"></a>创建进程</h3><h4 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h4><p>创建一个子进程</p>
 <ol>

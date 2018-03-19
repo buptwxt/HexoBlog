@@ -25,10 +25,4 @@ tags:
 [MIND HACKS](http://mindhacks.cn)
 [廖雪峰](http://www.liaoxuefeng.com)
 [w3c](http://www.w3school.com.cn)
-	
-### 4、杂谈
-[晓松奇谈](http://www.iqiyi.com/a_19rrgifngp.html)
-[罗辑思维](http://i.youku.com/i/UNTEzNTY1OTgw/videos)
-[天天向上](http://www.mgtv.com/v/1/290349/index.html?cxid=95kqkw8n6)
-[bilibili](http://www.bilibili.com)
 

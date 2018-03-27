@@ -356,34 +356,15 @@
 
       
         
-          
-            <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>非类型模板参数 bitset<br>缺省模板参数<br>typename<br>模板成员函数（包括构造函数，但不能为virtual和缺省值）</p>
-<h3 id="基本类型显示初始化"><a href="#基本类型显示初始化" class="headerlink" title="基本类型显示初始化"></a>基本类型显示初始化</h3><p>int i = int()<br>基础类型会被初始化为0</p>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>void func() throw(); // 不抛出异常<br>void func() throw(bad_alloc); // 跑出bad_alloc异常<br>try catch<br>throw</p>
-<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><h3 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h3><h3 id="explicit-和-implicit"><a href="#explicit-和-implicit" class="headerlink" title="explicit 和 implicit"></a>explicit 和 implicit</h3><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>dynamic_cast 属于执行期转换</p>
-<h3 id="常数静态成员"><a href="#常数静态成员" class="headerlink" title="常数静态成员"></a>常数静态成员</h3><p>类中可以初始化<br>但是仍然需要在类外定义</p>
-<h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p>标准C++头<br>标准C头<br>旧C头</p>
-<h3 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h3><p>语言支持的异常<br>例如:<br>    new 失败<br>    dynamic_cast 失败<br>C++标准库发出的异常<br>    派生自logic_error<br>程序作用域外的异常<br>    runtime_error</p>
-<p>图：</p>
-<ul>
-<li>exception<br>– bad_alloc<br>– bad_cast<br>– bad_typeid<br>– logic_error<br>—- domain_error<br>—- invalid_argument<br>—- length_error<br>—- out_of_range<br>– ios_base::failure<br>– runtime_error<br>—- range_error<br>—- overflow_error<br>—- underflow_error<br>– bad_exception   </li>
-</ul>
-<p>异常类别成员函数<br>what() 返回异常信息</p>
-<p>派生新类别可以重写 what() 虚函数<br>配置器默认就好了</p>
-<h3 id="pairs"><a href="#pairs" class="headerlink" title="pairs"></a>pairs</h3><p>直接构造<br>make_pair()函数构造</p>
-<h3 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h3><p>获取资源<br>执行操作<br>释放资源<br>比try catch 更加优雅</p>
-<p>auto_ptr可以拿来当做另外一个auto_ptr的初值，普通指针不行</p>
-<p>所有权转移<br>函数是数据终点<br>函数是数据起点</p>
-<p>const auto_ptr<int> p(new int)<br>const 意味着不能更改auto_ptr的所有权，可以修改执行的内容<br>const auto_ptr 作为参数，新对象的任何赋值会导致编译错误</int></p>
-<p>auto_ptr 作为成员，当对象删除时，auto_ptr会自动删除其所成员对象。为了避免意外转移所有权，可以将成员设置为const auto_ptr</p>
-<p>易错点：<br>auto_ptr 不能共享所有权<br>不存在指向数组的auto_ptr（不是delete []）<br>不属于引用计数型智能指针<br>不满足STL容器对元素要求（拷贝和赋值后，原auto_ptr和新auto_ptr不等）</p>
-<h3 id="数值极限"><a href="#数值极限" class="headerlink" title="数值极限"></a>数值极限</h3><p>climits 和 cfloat头文件<br>numeric_limits 类模板<br>有一些成员函数</p>
-<h3 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h3><p>min<br>max<br>swap</p>
-<h3 id="辅助性比较操作符号"><a href="#辅助性比较操作符号" class="headerlink" title="辅助性比较操作符号"></a>辅助性比较操作符号</h3><p>using namespace std::rel_ops中定义了 != &gt;= &lt;= &gt;<br>基于 == 和 &lt;</p>
-<h3 id="cstddef和cstdlib头文件"><a href="#cstddef和cstdlib头文件" class="headerlink" title="cstddef和cstdlib头文件"></a>cstddef和cstdlib头文件</h3><p>NULL<br>size_t<br>ptrdiff_t<br>offsetof</p>
-<p>atexit<br>exit<br>_exit<br>abort<br>EXIT_SUCCESS<br>EXIT_FAILURE</p>
-<h2 id="STL-库"><a href="#STL-库" class="headerlink" title="STL 库"></a>STL 库</h2>
-          
+          <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>非类型模板参数 bitset<br>缺省模板参数<br>typename<br>模板成员函数（包括构造函数，但不能为virtual和缺省值）</p>
+<h3 id="基本类型显示初始化"><a href="#基本类型显示初始化" class="headerlink" title="基本类型显示初始化"></a>基本类型显示初始化</h3><p>int i = int()<br>基础类型会被初始化为0<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/27/C-标准程序库读书笔记1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -522,33 +503,15 @@
 
       
         
-          
-            <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>Go不具有继承、虚函数、构造函数、析构函数、隐藏this指针等传统面向对象编程特征。</p>
-<h2 id="类型系统"><a href="#类型系统" class="headerlink" title="类型系统"></a>类型系统</h2><p>类型系统指一门语言的类型体系结构。典型的类型系统包括：</p>
-<ul>
-<li>基础类型</li>
-<li>复合类型</li>
-<li>可以指向任意对象的类型</li>
-<li>值语义和引用语义</li>
-<li>面向对象，即所有具备面向对象特征的类型</li>
-<li>接口<br>类型系统描述了类型体系结构如何被关联<br>Go语言中大多数类型都是值语义，并且可以包含对应的操作方法。在需要的时候，可以给任何类型“增加”新方法。实现某个接口时，无需从该接口继承，只要实现该接口要求的所有方法即可。任何类型都可以被Any类型引用。Any类型是空接口，即interface{}</li>
-</ul>
-<h3 id="为类型添加方法"><a href="#为类型添加方法" class="headerlink" title="为类型添加方法"></a>为类型添加方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Interger int</span><br><span class="line"></span><br><span class="line">func (a *Interger)Add(b Interger)&#123;</span><br><span class="line">    *a += b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意需要修改变量的值时，传指针<br>“Go语言中没有隐藏this指针”<br>施加的目标显示传递，没有被隐藏<br>不需要非得是指针，也不用非得叫this</p>
-<h3 id="值和引用语义"><a href="#值和引用语义" class="headerlink" title="值和引用语义"></a>值和引用语义</h3><p>基本类型和符合类型都是基于值语义<br>byte bool float32 string等<br>数组 结构体 指针等</p>
-<p>a, b不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = [3]int&#123;1,2,3&#125;</span><br><span class="line">var b = a</span><br><span class="line">b[1]++</span><br></pre></td></tr></table></figure></p>
-<p>想表达引用，需要用指针<br>a, b相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = [3]int&#123;1,2,3&#125;</span><br><span class="line">var b = &amp;a</span><br><span class="line">b[1]++</span><br></pre></td></tr></table></figure></p>
-<p>Q: 数组和对数组取地址区别？</p>
-<p>4个看起来像引用类型，他们本质上与指针相关</p>
-<ul>
-<li>数组切片</li>
-<li>map</li>
-<li>channel</li>
-<li>接口</li>
-</ul>
-<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><p>放弃了大量面向对象特征，保留了组合特征<br>跟C结构体非常像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type Rect struct&#123;</span><br><span class="line">    x, y float64</span><br><span class="line">    width, height float64</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (r *Rect) Area() float64&#123;</span><br><span class="line">    return r.width * r.height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var r Rect</span><br><span class="line">r.width = 10</span><br><span class="line">r.height = 10</span><br><span class="line">fmt.Println( r.Area() )</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>Go不具有继承、虚函数、构造函数、析构函数、隐藏this指针等传统面向对象编程特征。</p>
+<h2 id="类型系统"><a href="#类型系统" class="headerlink" title="类型系统"></a>类型系统</h2><p>类型系统指一门语言的类型体系结构。典型的类型系统包括：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/26/Go语言编程学习笔记-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

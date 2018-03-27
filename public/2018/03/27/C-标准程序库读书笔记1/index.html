@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,进程," />
+  <meta name="keywords" content="C++ STL," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
-<meta name="keywords" content="Linux,进程">
+<meta name="description" content="基础模板非类型模板参数 bitset缺省模板参数typename模板成员函数（包括构造函数，但不能为virtual和缺省值） 基本类型显示初始化int i = int()基础类型会被初始化为0 异常void func() throw(); // 不抛出异常void func() throw(bad_alloc); // 跑出bad_alloc异常try catchthrow 命名空间bool 类型">
+<meta name="keywords" content="C++ STL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 进程基本知识">
-<meta property="og:url" content="http://buptwxt.github.io/2018/03/18/Linux-进程基本知识/index.html">
+<meta property="og:title" content="C++标准程序库读书笔记1">
+<meta property="og:url" content="http://buptwxt.github.io/2018/03/27/C-标准程序库读书笔记1/index.html">
 <meta property="og:site_name" content="Wang">
-<meta property="og:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
+<meta property="og:description" content="基础模板非类型模板参数 bitset缺省模板参数typename模板成员函数（包括构造函数，但不能为virtual和缺省值） 基本类型显示初始化int i = int()基础类型会被初始化为0 异常void func() throw(); // 不抛出异常void func() throw(bad_alloc); // 跑出bad_alloc异常try catchthrow 命名空间bool 类型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T15:17:37.786Z">
+<meta property="og:updated_time" content="2018-03-27T15:06:00.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 进程基本知识">
-<meta name="twitter:description" content="Linux 进程基本知识概述进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。">
+<meta name="twitter:title" content="C++标准程序库读书笔记1">
+<meta name="twitter:description" content="基础模板非类型模板参数 bitset缺省模板参数typename模板成员函数（包括构造函数，但不能为virtual和缺省值） 基本类型显示初始化int i = int()基础类型会被初始化为0 异常void func() throw(); // 不抛出异常void func() throw(bad_alloc); // 跑出bad_alloc异常try catchthrow 命名空间bool 类型">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://buptwxt.github.io/2018/03/18/Linux-进程基本知识/"/>
+  <link rel="canonical" href="http://buptwxt.github.io/2018/03/27/C-标准程序库读书笔记1/"/>
 
 
 
 
 
-  <title>Linux 进程基本知识 | Wang</title>
+  <title>C++标准程序库读书笔记1 | Wang</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/18/Linux-进程基本知识/">
+    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/27/C-标准程序库读书笔记1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="喜糖">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 进程基本知识</h1>
+          <h1 class="post-title" itemprop="name headline">C++标准程序库读书笔记1</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T23:04:12+08:00">
-                2018-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:02:06+08:00">
+                2018-03-27
               </time>
             
 
@@ -354,29 +354,32 @@
       
 
       
-        <h1 id="Linux-进程基本知识"><a href="#Linux-进程基本知识" class="headerlink" title="Linux 进程基本知识"></a>Linux 进程基本知识</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>进程是操作系统的基本而重要的概念，对进程最初的认识是处于运行中程序。从操作系统的角度看待进程，它是获取资源的最小单元。本文从操作系统提供的系统调用接口看待进程，从进程出生到死亡，学习Linux平台上的系统调用接口，本文不涉及进程间通信相关知识。</p>
-<a id="more"></a>
-<h2 id="进程相关的接口函数"><a href="#进程相关的接口函数" class="headerlink" title="进程相关的接口函数"></a>进程相关的接口函数</h2><p>学习服务器编程，必定涉及到多进程，所以，熟悉操作系统知识和提供的进程相关接口函数是入门服务器编程的必经之路。</p>
-<h3 id="创建进程"><a href="#创建进程" class="headerlink" title="创建进程"></a>创建进程</h3><h4 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h4><p>创建一个子进程</p>
-<ol>
-<li>最大特征是调用一次，返回两次。父进程中返回正数进程号码，子进程返回0，然后两个进程继续向后执行</li>
-<li>子进程获得父进程的栈，数据段，堆，和执行文本</li>
-<li>子进程共享父进程打开的文件句柄</li>
-</ol>
-<h4 id="vfork"><a href="#vfork" class="headerlink" title="vfork"></a>vfork</h4><p>不复制虚拟内存和页表，共享父进程内存<br>子进程调用_exit或者exec之前，父进程暂停执行</p>
-<h4 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h4><p>创建新进程，程序起点不是调用点，而是func参数指定的函数</p>
-<h4 id="execve"><a href="#execve" class="headerlink" title="execve"></a>execve</h4><p>一系列函数，将当前进程的资源全部替换为新程序所需资源</p>
-<h4 id="system"><a href="#system" class="headerlink" title="system"></a>system</h4><p>执行任何linux命令</p>
-<h3 id="获取进程状态"><a href="#获取进程状态" class="headerlink" title="获取进程状态"></a>获取进程状态</h3><p>通过SIGCHLD信号或者wait系统调用获取进程状态信息</p>
-<h3 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h3><p>获取任意子进程终止状态信息<br>一直阻塞，直到某一个子进程终止<br>status参数返回子进程终止信息<br>内核将所有子进程追加进程CPU时间和资源使用数据<br>子进程ID作为wait结果返回<br>不能处理子进程因信号停止或是停止子进程因信号恢复运行</p>
-<h3 id="waitpid"><a href="#waitpid" class="headerlink" title="waitpid"></a>waitpid</h3><p>比wait更加精确<br>增加了pid_t参数，能够检测指定的进程或者进程组；以及option选项，检测因信号停止、运行等状态的进程<br>status返回值（宏测试）可以区分子进程事件<br>waitid、wait3、wait4更加丰富的接口</p>
-<h3 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h3><h4 id="exit-和-exit"><a href="#exit-和-exit" class="headerlink" title="exit 和 _exit"></a>exit 和 _exit</h4><p>异常终止或者正常终止<br>exit 调用退出处理函数，刷新缓冲区，执行_exit系统调用<br>main函数返回或者执行到结尾<br>进程终止会执行一堆清理工作，关闭文件描述符等<br>on_exit atexit注册退出处理函数，按照注册顺序，逆序调用</p>
-<p>行缓冲，块缓冲，fork之前 fflush 刷新缓冲，或者setvbuf、 setbuf 关闭缓冲<br>write会将数据直接传递给内核缓冲区，fork不会复制这一缓冲区</p>
-<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><h4 id="写时拷贝技术"><a href="#写时拷贝技术" class="headerlink" title="写时拷贝技术"></a>写时拷贝技术</h4><p>fork进程的时候，并不是一开始就copy父进程的所有资源到子进程，而是当父子进程需要修改资源的时候，再按需copy父进程中的资源到子进程</p>
-<h4 id="竞态"><a href="#竞态" class="headerlink" title="竞态"></a>竞态</h4><p>fork后是父进程还是子进程先执行，没有确定关系，需要采用同步技术（不能简单靠sleep），常见的同步技术有：信号量，文件锁，管道，信号。</p>
-<h4 id="孤儿进程和僵尸进程"><a href="#孤儿进程和僵尸进程" class="headerlink" title="孤儿进程和僵尸进程"></a>孤儿进程和僵尸进程</h4><p>子进程的父进程终止后，该子进程为孤儿进程，init进程接管该孤儿进程<br>子进程终止后，如果父进程没有wait，那么该子进程为僵尸进程。内核会保留子进程ID、终止状态、资源使用数据等信息，父进程如果一直不wait，这些数据会一直存在。通过信号都不能杀死僵尸进程。</p>
-<!--## 注意事项-->
-
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>非类型模板参数 bitset<br>缺省模板参数<br>typename<br>模板成员函数（包括构造函数，但不能为virtual和缺省值）</p>
+<h3 id="基本类型显示初始化"><a href="#基本类型显示初始化" class="headerlink" title="基本类型显示初始化"></a>基本类型显示初始化</h3><p>int i = int()<br>基础类型会被初始化为0</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>void func() throw(); // 不抛出异常<br>void func() throw(bad_alloc); // 跑出bad_alloc异常<br>try catch<br>throw</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><h3 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h3><h3 id="explicit-和-implicit"><a href="#explicit-和-implicit" class="headerlink" title="explicit 和 implicit"></a>explicit 和 implicit</h3><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>dynamic_cast 属于执行期转换</p>
+<h3 id="常数静态成员"><a href="#常数静态成员" class="headerlink" title="常数静态成员"></a>常数静态成员</h3><p>类中可以初始化<br>但是仍然需要在类外定义</p>
+<h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p>标准C++头<br>标准C头<br>旧C头</p>
+<h3 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h3><p>语言支持的异常<br>例如:<br>    new 失败<br>    dynamic_cast 失败<br>C++标准库发出的异常<br>    派生自logic_error<br>程序作用域外的异常<br>    runtime_error</p>
+<p>图：</p>
+<ul>
+<li>exception<br>– bad_alloc<br>– bad_cast<br>– bad_typeid<br>– logic_error<br>—- domain_error<br>—- invalid_argument<br>—- length_error<br>—- out_of_range<br>– ios_base::failure<br>– runtime_error<br>—- range_error<br>—- overflow_error<br>—- underflow_error<br>– bad_exception   </li>
+</ul>
+<p>异常类别成员函数<br>what() 返回异常信息</p>
+<p>派生新类别可以重写 what() 虚函数<br>配置器默认就好了</p>
+<h3 id="pairs"><a href="#pairs" class="headerlink" title="pairs"></a>pairs</h3><p>直接构造<br>make_pair()函数构造</p>
+<h3 id="auto-ptr"><a href="#auto-ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h3><p>获取资源<br>执行操作<br>释放资源<br>比try catch 更加优雅</p>
+<p>auto_ptr可以拿来当做另外一个auto_ptr的初值，普通指针不行</p>
+<p>所有权转移<br>函数是数据终点<br>函数是数据起点</p>
+<p>const auto_ptr<int> p(new int)<br>const 意味着不能更改auto_ptr的所有权，可以修改执行的内容<br>const auto_ptr 作为参数，新对象的任何赋值会导致编译错误</int></p>
+<p>auto_ptr 作为成员，当对象删除时，auto_ptr会自动删除其所成员对象。为了避免意外转移所有权，可以将成员设置为const auto_ptr</p>
+<p>易错点：<br>auto_ptr 不能共享所有权<br>不存在指向数组的auto_ptr（不是delete []）<br>不属于引用计数型智能指针<br>不满足STL容器对元素要求（拷贝和赋值后，原auto_ptr和新auto_ptr不等）</p>
+<h3 id="数值极限"><a href="#数值极限" class="headerlink" title="数值极限"></a>数值极限</h3><p>climits 和 cfloat头文件<br>numeric_limits 类模板<br>有一些成员函数</p>
+<h3 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h3><p>min<br>max<br>swap</p>
+<h3 id="辅助性比较操作符号"><a href="#辅助性比较操作符号" class="headerlink" title="辅助性比较操作符号"></a>辅助性比较操作符号</h3><p>using namespace std::rel_ops中定义了 != &gt;= &lt;= &gt;<br>基于 == 和 &lt;</p>
+<h3 id="cstddef和cstdlib头文件"><a href="#cstddef和cstdlib头文件" class="headerlink" title="cstddef和cstdlib头文件"></a>cstddef和cstdlib头文件</h3><p>NULL<br>size_t<br>ptrdiff_t<br>offsetof</p>
+<p>atexit<br>exit<br>_exit<br>abort<br>EXIT_SUCCESS<br>EXIT_FAILURE</p>
+<h2 id="STL-库"><a href="#STL-库" class="headerlink" title="STL 库"></a>STL 库</h2>
       
     </div>
     
@@ -393,9 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/进程/" rel="tag"># 进程</a>
+            <a href="/tags/C-STL/" rel="tag"># C++ STL</a>
           
         </div>
       
@@ -408,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/03/26/Go语言编程学习笔记-2/" rel="next" title="Go语言编程学习笔记 2">
+                <i class="fa fa-chevron-left"></i> Go语言编程学习笔记 2
               </a>
             
           </div>
@@ -417,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/25/Go语言编程学习笔记-1/" rel="prev" title="Go语言编程学习笔记 1">
-                Go语言编程学习笔记 1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-进程基本知识"><span class="nav-number">1.</span> <span class="nav-text">Linux 进程基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程相关的接口函数"><span class="nav-number">1.2.</span> <span class="nav-text">进程相关的接口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建进程"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建进程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fork"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">fork</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vfork"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">vfork</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clone"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#execve"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">execve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#system"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">system</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取进程状态"><span class="nav-number">1.2.2.</span> <span class="nav-text">获取进程状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wait"><span class="nav-number">1.2.3.</span> <span class="nav-text">wait</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#waitpid"><span class="nav-number">1.2.4.</span> <span class="nav-text">waitpid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程终止"><span class="nav-number">1.2.5.</span> <span class="nav-text">进程终止</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#exit-和-exit"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">exit 和 _exit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项"><span class="nav-number">1.2.6.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写时拷贝技术"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">写时拷贝技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#竞态"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">竞态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#孤儿进程和僵尸进程"><span class="nav-number">1.2.6.3.</span> <span class="nav-text">孤儿进程和僵尸进程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.1.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型显示初始化"><span class="nav-number">1.2.</span> <span class="nav-text">基本类型显示初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-number">1.3.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间"><span class="nav-number">1.4.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bool-类型"><span class="nav-number">1.5.</span> <span class="nav-text">bool 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#explicit-和-implicit"><span class="nav-number">1.6.</span> <span class="nav-text">explicit 和 implicit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.7.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常数静态成员"><span class="nav-number">1.8.</span> <span class="nav-text">常数静态成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头文件"><span class="nav-number">1.9.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误和异常"><span class="nav-number">1.10.</span> <span class="nav-text">错误和异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pairs"><span class="nav-number">1.11.</span> <span class="nav-text">pairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-ptr"><span class="nav-number">1.12.</span> <span class="nav-text">auto_ptr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值极限"><span class="nav-number">1.13.</span> <span class="nav-text">数值极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助函数"><span class="nav-number">1.14.</span> <span class="nav-text">辅助函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助性比较操作符号"><span class="nav-number">1.15.</span> <span class="nav-text">辅助性比较操作符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cstddef和cstdlib头文件"><span class="nav-number">1.16.</span> <span class="nav-text">cstddef和cstdlib头文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STL-库"><span class="nav-number">2.</span> <span class="nav-text">STL 库</span></a></li></ol></div>
             
 
           </div>

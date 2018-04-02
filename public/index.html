@@ -264,6 +264,300 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/04/02/C-标准库读书笔记4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喜糖">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/C-标准库读书笔记4/" itemprop="url">C++标准库读书笔记4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T23:09:55+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/04/02/C-标准库读书笔记3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喜糖">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/C-标准库读书笔记3/" itemprop="url">C++标准库读书笔记3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T22:48:32+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><p>每个容器都有自己的迭代器型别</p>
+<h2 id="迭代器分类："><a href="#迭代器分类：" class="headerlink" title="迭代器分类："></a>迭代器分类：</h2><ol>
+<li>输入迭代器</li>
+<li>输出迭代器，输出迭代器不具有比较操作</li>
+<li>前向迭代器，前向迭代器包括input迭代器全部和output迭代器大部分功能，</li>
+<li>双向迭代器 ++  –</li>
+<li>随机迭代器<h2 id="相关辅助函数"><a href="#相关辅助函数" class="headerlink" title="相关辅助函数"></a>相关辅助函数</h2>vector和string 迭代器临时值递增可能编译不过<br>advance迭代器能前进后退，随机迭代器使用时效率差。<br>distance，返回两个迭代器距离，pos1必须能够到达pos2，随机迭代器使用时效率差。<br>iter_swap 交换两个迭代器所指内容，两个迭代器可以不是同一个容器迭代器</li>
+</ol>
+<h2 id="迭代器配接器"><a href="#迭代器配接器" class="headerlink" title="迭代器配接器"></a>迭代器配接器</h2><h3 id="逆向迭代器"><a href="#逆向迭代器" class="headerlink" title="逆向迭代器"></a>逆向迭代器</h3><p>rbegin()<br>rend()<br>reverse_iterator<br>base()</p>
+<h3 id="安插迭代器"><a href="#安插迭代器" class="headerlink" title="安插迭代器"></a>安插迭代器</h3><p>*pos 和 pos等效<br>赋值动作转化为安插操作<br>++iter 无效</p>
+<p>前插<br>后插<br>通用插</p>
+<p>back_insert_iterator push_back back_inserter<br>front_insert_iterator front_back front_inserter<br>insert_iterator insert inserter</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/31/分布式系统学习笔记1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -644,7 +938,41 @@
         
           
             <h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>deque 内部数据结构实现<br>与vector对比起来学习，能够高效在首部添加或者删除成员</p>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>双向链表管理元素<br>不支持随机存取，任何位置插入删除高效，插入和删除不会导致其他元素迭代器、引用、指针失效<br>要么操作成功，要么什么都不发生<br>不提供容量空间重新分配操作函数<br>提供了不少专门用于元素移动的成员函数</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>双向链表管理元素<br>不支持随机存取，任何位置插入删除高效，插入和删除不会导致其他元素迭代器、引用、指针失效<br>要么操作成功，要么什么都不发生<br>不提供容量空间重新分配操作函数<br>提供了不少专门用于元素移动的成员函数<br>remove<br>remove_if</p>
+<h4 id="splice函数"><a href="#splice函数" class="headerlink" title="splice函数"></a>splice函数</h4><p>unique<br>splice<br>sort<br>merge<br>reverse</p>
+<p>list基本上所有操作都是不成功或者成功，中间状态也不会有资源泄露<br>只要不调用sort或者赋值操作，并保证元素比较时不抛出异常，那么可以说list是“事物安全”</p>
+<h3 id="sets和multisets"><a href="#sets和multisets" class="headerlink" title="sets和multisets"></a>sets和multisets</h3><p>拷贝 赋值 比较的类型都可以作为set的元素<br>排序准则满足：</p>
+<ol>
+<li>反对称</li>
+<li>可传递</li>
+<li>非自反</li>
+</ol>
+<p>不能直接改变元素值，必须先删除旧元素，再插入新元素</p>
+<ol>
+<li>只需要传递一个参数作为排序准则</li>
+<li>不必针对元素型别提供operator==</li>
+<li>可以对相等性有截然相反的定义</li>
+</ol>
+<p>比较动作只能用于相同的容器，元素类型和排序准则都必须相同</p>
+<p>set搜寻操作函数<br>count(elem) 返回值为elem元素个数<br>find(elem) 返回值为elem第一个元素<br>lower_bound(elem) 返回元素值大于等于elem的第一个元素<br>upper_bound(elem) 返回值大于elem第一个元素<br>equal_range(elem) 返回元素值==elem的元素区间</p>
+<p>两个排序准则不同，但是元素类型相同的set赋值（或者swap）时，排序准则也会被修改</p>
+<p>set容器的迭代器为双向迭代器<br>remove算法是参数值覆盖被移除的元素，set元素不能被修改，因此不能使用remove算法<br>insert(pos, elem) pos并不代表真正的位置，只是一种提示，提示的恰当，能加快速率</p>
+<p>set insert(elem) 返回pair，位置和是否插入成功<br>insert 提示得当，复杂度有logn变为分摊常数</p>
+<p>erase 删除所有<br>erase(pos) 删除指定<br>erase返回void，顺序容器erase返回迭代器</p>
+<p>删除总能成功<br>插入单个要么失败，要么成功；插入多个不能保证要么成功，要么失败</p>
+<p>执行期指定排序准则<br>赋值操作符不仅赋值元素，同时赋值了排序准则<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"> template &lt;class T&gt;</span><br><span class="line">class RuntimeCmp &#123;</span><br><span class="line">public:</span><br><span class="line">    enum cmp_mode&#123;normal, reverse&#125;;</span><br><span class="line">    </span><br><span class="line">private:</span><br><span class="line">    cmp_mode mode;</span><br><span class="line">public:</span><br><span class="line">    RuntimeCmp(cmp_mode m=normal):mode(m)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    bool operator()(const T&amp;t1, const T&amp;t2) const&#123;</span><br><span class="line">        return mode == normal ? t1 &lt; t2 : t2 &lt; t1;</span><br><span class="line">    &#125;</span><br><span class="line">    bool operator==(const RuntimeCmp &amp;rc)&#123;</span><br><span class="line">        return mode==rc.mode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef set&lt;int, RuntimeCmp&lt;int&gt; &gt; IntSet;</span><br><span class="line">void fill(IntSet &amp;set);</span><br><span class="line">void fill(IntSet &amp;set)&#123;</span><br><span class="line">    set.insert(4);</span><br><span class="line">    set.insert(7);</span><br><span class="line">    set.insert(5);</span><br><span class="line">    set.insert(1);</span><br><span class="line">    set.insert(6);</span><br><span class="line">    set.insert(2);</span><br><span class="line">    set.insert(5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PrintSet(IntSet &amp;set)&#123;</span><br><span class="line">    IntSet::iterator iter = set.begin();</span><br><span class="line">    for (; iter != set.end(); ++iter) &#123;</span><br><span class="line">        cout &lt;&lt; *iter &lt;&lt; &quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    // insert code here...</span><br><span class="line">    </span><br><span class="line">    IntSet coll1;</span><br><span class="line">    fill(coll1);</span><br><span class="line">    PrintSet(coll1);</span><br><span class="line">    </span><br><span class="line">    RuntimeCmp&lt;int&gt; reverse_order(RuntimeCmp&lt;int&gt;::reverse);</span><br><span class="line">    IntSet coll2(reverse_order);</span><br><span class="line">    //fill(coll2);</span><br><span class="line">    PrintSet(coll2);</span><br><span class="line">    </span><br><span class="line">    set&lt;int&gt; set1;</span><br><span class="line">    set&lt;int&gt; set2( greater&lt;int&gt; );</span><br><span class="line">    </span><br><span class="line">    if( coll1.value_comp() == coll2.value_comp() )&#123;</span><br><span class="line">        cout &lt;&lt; &quot;equal&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        cout &lt;&lt; &quot;not equal&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; &quot;Hello, World!\n&quot;;</span><br><span class="line">    </span><br><span class="line">    sleep(10);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="maps和multimaps"><a href="#maps和multimaps" class="headerlink" title="maps和multimaps"></a>maps和multimaps</h3><p>构造函数</p>
+<ol>
+<li>以模板参数定义</li>
+<li>以构造函数参数定义</li>
+</ol>
+<p>与set类似，set可以看做map的特例<br>map的key为const</p>
+<p>value_type<br>pair<br>make_pair<br>三种方式将value传入map</p>
+<p>遍历删除元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for ( SIMap::iterator iter = myMap.begin(); iter != myMap.end(); ) &#123;</span><br><span class="line">        if (iter-&gt;second == 28) &#123;</span><br><span class="line">            myMap.erase(iter++);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            ++iter;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意map重载了operator[]，返回引用；元素不存在则，则加入该元素，防止误加入新元素</p>
+<p>find_if 算法查询或者遍历查询value为某一个值得元素</p>
+<p>cout.setf(ios::left, ios::adjustfield);</p>
+<h3 id="容器其他"><a href="#容器其他" class="headerlink" title="容器其他"></a>容器其他</h3><p>deque元素被删除时，容器能够自动缩减内存</p>
 
           
         
@@ -1392,299 +1720,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2017/09/27/cJSON库基础介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="喜糖">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/27/cJSON库基础介绍/" itemprop="url">cJSON库介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T15:32:00+08:00">
-                2017-09-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>JSON作为一种轻量级的数据交换格式，易于学习和使用，广泛应用于当前计算机应用中。计算机应用中会频繁的解析JSON格式数据内容，和生成JSON格式字符串，所以有必要生成一套库，简化操作。cJSON是一套解析JSON格式和生成JSON格式串的库，供c/c++操作，支持跨平台，代码行数小。本文旨在帮助理解该库，能够轻松的将该库应用到自己的项目中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键词/检索词：c, JSON，接口，数据交换, 跨平台</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/27/cJSON库基础介绍/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2016/10/09/resource/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="喜糖">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/10/09/resource/" itemprop="url">常去网站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-09T07:00:00+08:00">
-                2016-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1、入口"><a href="#1、入口" class="headerlink" title="1、入口"></a>1、入口</h3><p><a href="https://www.google.com" target="_blank" rel="noopener">谷歌</a><br><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
-<h3 id="2、涨姿势"><a href="#2、涨姿势" class="headerlink" title="2、涨姿势"></a>2、涨姿势</h3><p><a href="https://www.douban.com" target="_blank" rel="noopener">豆瓣</a><br><a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a><br><a href="https://bbs.byr.cn" target="_blank" rel="noopener">北邮人论坛</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/10/09/resource/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1735,7 +1770,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1757,7 +1792,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

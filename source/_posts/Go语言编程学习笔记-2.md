@@ -1,5 +1,5 @@
 ---
-title: Go语言编程学习笔记 2
+title: Go 面向对象
 date: 2018-03-26 21:24:42
 categories:
 - 技术 

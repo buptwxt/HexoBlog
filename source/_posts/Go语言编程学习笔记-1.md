@@ -1,5 +1,5 @@
 ---
-title: Go语言编程学习笔记 1
+title: Go 基础
 date: 2018-03-25 22:45:24
 categories:
 - 技术 

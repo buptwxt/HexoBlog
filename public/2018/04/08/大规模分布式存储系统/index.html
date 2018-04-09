@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Wang">
 <meta property="og:description" content="概述当前的问题需要处理的数据越来越多、数据量越来越大环境复杂，部分机器工作，部分出故障RPC调用异步调用耗时长 节省成本带来的问题普通服务器故障率高，需要自动容错，软件层面需要自动负载均衡，使得系统处理能力得到线性扩展 分布式存储与云存储和大数据的关系？分布式存储是基础，云存储和大数据是构建在分布式存储上的应用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-08T15:56:20.311Z">
+<meta property="og:updated_time" content="2018-04-09T14:32:01.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大规模分布式存储系统">
 <meta name="twitter:description" content="概述当前的问题需要处理的数据越来越多、数据量越来越大环境复杂，部分机器工作，部分出故障RPC调用异步调用耗时长 节省成本带来的问题普通服务器故障率高，需要自动容错，软件层面需要自动负载均衡，使得系统处理能力得到线性扩展 分布式存储与云存储和大数据的关系？分布式存储是基础，云存储和大数据是构建在分布式存储上的应用。">
@@ -374,7 +374,12 @@
 <h2 id="网络拓扑"><a href="#网络拓扑" class="headerlink" title="网络拓扑"></a>网络拓扑</h2><p>核心层、汇聚层、接入层<br>网络拓扑扁平化，减少跨数据中心传输</p>
 <h2 id="性能参数"><a href="#性能参数" class="headerlink" title="性能参数"></a>性能参数</h2><p>磁盘读写<br>存储系统性能瓶颈主要在于磁盘随机读写。设计存储引擎的时候会针对磁盘的特性做很多处理，比如随机写操作转化为顺序写，通过缓存减少磁盘随机读操作。<br>可以使用SSD做缓存或者性能要求较高的关键业务（随机读取延迟小，能够提供很好的IOPS）</p>
 <h2 id="存储系统性能指标"><a href="#存储系统性能指标" class="headerlink" title="存储系统性能指标"></a>存储系统性能指标</h2><p>吞吐量、访问延时</p>
-<h2 id="单机存储引擎"><a href="#单机存储引擎" class="headerlink" title="单机存储引擎"></a>单机存储引擎</h2><h3 id="哈希存储引擎"><a href="#哈希存储引擎" class="headerlink" title="哈希存储引擎"></a>哈希存储引擎</h3><p>增、删、读、修改操作<br>Bitcask</p>
+<h2 id="单机存储引擎"><a href="#单机存储引擎" class="headerlink" title="单机存储引擎"></a>单机存储引擎</h2><h3 id="哈希存储引擎"><a href="#哈希存储引擎" class="headerlink" title="哈希存储引擎"></a>哈希存储引擎</h3><p>增、删、读、修改操作<br>Bitcask<br>添加数据到活跃文件<br>定期合并<br>快速恢复</p>
+<h3 id="B树存储引擎"><a href="#B树存储引擎" class="headerlink" title="B树存储引擎"></a>B树存储引擎</h3><p>B树 B+树<br>缓冲区管理：LRU算法 LIRS算法</p>
+<h3 id="LSM树存储引擎"><a href="#LSM树存储引擎" class="headerlink" title="LSM树存储引擎"></a>LSM树存储引擎</h3><h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>存储系统的外壳<br>文件<br>关系<br>键值模型</p>
+<h2 id="事务与比并发控制"><a href="#事务与比并发控制" class="headerlink" title="事务与比并发控制"></a>事务与比并发控制</h2><p>ACID<br>数据库锁<br>写时复制<br>多版本并发控制</p>
+<h2 id="故障恢复"><a href="#故障恢复" class="headerlink" title="故障恢复"></a>故障恢复</h2><p>日志<br>重做日志<br>优化手段：<br>成组提交<br>检查点</p>
+<h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><p>压缩算法<br>列式存储</p>
 
       
     </div>
@@ -414,6 +419,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/09/大规模分布式存储系统-分布式系统/" rel="prev" title="大规模分布式存储系统-分布式系统">
+                大规模分布式存储系统-分布式系统 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -490,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -512,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -552,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当前的问题"><span class="nav-number">1.1.</span> <span class="nav-text">当前的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节省成本带来的问题"><span class="nav-number">1.2.</span> <span class="nav-text">节省成本带来的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.3.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互联网分布式系统特点"><span class="nav-number">1.4.</span> <span class="nav-text">互联网分布式系统特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.5.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征"><span class="nav-number">1.6.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术难点"><span class="nav-number">1.7.</span> <span class="nav-text">技术难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">1.8.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单机存储系统"><span class="nav-number">2.</span> <span class="nav-text">单机存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU架构"><span class="nav-number">2.1.</span> <span class="nav-text">CPU架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO总线"><span class="nav-number">2.2.</span> <span class="nav-text">IO总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络拓扑"><span class="nav-number">2.3.</span> <span class="nav-text">网络拓扑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能参数"><span class="nav-number">2.4.</span> <span class="nav-text">性能参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储系统性能指标"><span class="nav-number">2.5.</span> <span class="nav-text">存储系统性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单机存储引擎"><span class="nav-number">2.6.</span> <span class="nav-text">单机存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希存储引擎"><span class="nav-number">2.6.1.</span> <span class="nav-text">哈希存储引擎</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当前的问题"><span class="nav-number">1.1.</span> <span class="nav-text">当前的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节省成本带来的问题"><span class="nav-number">1.2.</span> <span class="nav-text">节省成本带来的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.3.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互联网分布式系统特点"><span class="nav-number">1.4.</span> <span class="nav-text">互联网分布式系统特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.5.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征"><span class="nav-number">1.6.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术难点"><span class="nav-number">1.7.</span> <span class="nav-text">技术难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">1.8.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单机存储系统"><span class="nav-number">2.</span> <span class="nav-text">单机存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU架构"><span class="nav-number">2.1.</span> <span class="nav-text">CPU架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO总线"><span class="nav-number">2.2.</span> <span class="nav-text">IO总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络拓扑"><span class="nav-number">2.3.</span> <span class="nav-text">网络拓扑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能参数"><span class="nav-number">2.4.</span> <span class="nav-text">性能参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储系统性能指标"><span class="nav-number">2.5.</span> <span class="nav-text">存储系统性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单机存储引擎"><span class="nav-number">2.6.</span> <span class="nav-text">单机存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希存储引擎"><span class="nav-number">2.6.1.</span> <span class="nav-text">哈希存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树存储引擎"><span class="nav-number">2.6.2.</span> <span class="nav-text">B树存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSM树存储引擎"><span class="nav-number">2.6.3.</span> <span class="nav-text">LSM树存储引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据模型"><span class="nav-number">2.7.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务与比并发控制"><span class="nav-number">2.8.</span> <span class="nav-text">事务与比并发控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#故障恢复"><span class="nav-number">2.9.</span> <span class="nav-text">故障恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩"><span class="nav-number">2.10.</span> <span class="nav-text">压缩</span></a></li></ol></li></ol></div>
             
 
           </div>

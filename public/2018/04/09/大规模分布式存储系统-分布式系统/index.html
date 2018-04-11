@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Wang">
 <meta property="og:description" content="分布式系统概念和性能评估方法##存储到多节点多副本一致性 故障率高，需要自动容错">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-09T16:57:38.337Z">
+<meta property="og:updated_time" content="2018-04-10T14:58:12.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大规模分布式存储系统-分布式系统">
 <meta name="twitter:description" content="分布式系统概念和性能评估方法##存储到多节点多副本一致性 故障率高，需要自动容错">
@@ -372,7 +372,7 @@
 <p>磁盘、内存、CPU、网络、负载均衡都会使性能分析分析复杂化</p>
 <h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><p>哈希分布<br>顺序分布<br>哈希算法、数据倾斜问题<br>一致哈希算法<br>顺序分布。Meta和Root表机制，表分裂与合并操作。</p>
 <h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>总控节点、工作节点<br>工作节点上报状态信息，总控节点负责分派调度。让新加入节点平滑过渡。<br>主副本、多个备用副本</p>
-<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><p>强同步复制：一个副本回复就ok，副本再通知其他副本<br>异步复制：复制线程将客户端修改推送到其他副本<br>一致性和可用性之间权衡</p>
+<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><p>强同步复制：一个副本回复就ok，副本再通知其他副本<br>异步复制：复制线程将客户端修改推送到其他副本<br>一致性和可用性之间权衡<br>CAP<br>一致性<br>可用性<br>分区可容忍性</p>
 <p>复制协议<br>主副本故障，需要选举一个备副本为新主副本，Paxos协议</p>
 <p>回放操作日志<br>成组提交<br>检查点</p>
 <h1 id="分布式系统理论基础"><a href="#分布式系统理论基础" class="headerlink" title="分布式系统理论基础"></a>分布式系统理论基础</h1><h1 id="分布式协议"><a href="#分布式协议" class="headerlink" title="分布式协议"></a>分布式协议</h1><p>Paxos选举协议: 多个节点达成一致？<br>两阶段t提交协议: 跨多个节点操作的原子性 </p>

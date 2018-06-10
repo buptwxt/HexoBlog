@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="GO," />
+  <meta name="keywords" content="Nginx 高性能," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Go语言编程学习笔记基础介绍起源go语言为静态语言GOPATH项目目录结构go buildgo testgo rungo install">
-<meta name="keywords" content="GO">
+<meta name="description" content="进程模型一个master进程，CPU个数个worker工作进程 减少内存使用和切换开销独立工作，互不影响抢accept_mutex，抢到后worker开始处理 高并发如何处理事件？异步非阻塞。具体到系统调用就是像 select/poll/epoll/kqueue 这样的系统调用。它们提供了一种机制，让你可以同时监控多个事件，调用他们是阻塞的，但可以设置超时时间，在超时时间之内，如果有事件准备好了，">
+<meta name="keywords" content="Nginx 高性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 基础">
-<meta property="og:url" content="http://buptwxt.github.io/2018/03/25/Go基础/index.html">
+<meta property="og:title" content="nginx初探">
+<meta property="og:url" content="http://buptwxt.github.io/2018/05/11/nginx初探/index.html">
 <meta property="og:site_name" content="Wang">
-<meta property="og:description" content="Go语言编程学习笔记基础介绍起源go语言为静态语言GOPATH项目目录结构go buildgo testgo rungo install">
+<meta property="og:description" content="进程模型一个master进程，CPU个数个worker工作进程 减少内存使用和切换开销独立工作，互不影响抢accept_mutex，抢到后worker开始处理 高并发如何处理事件？异步非阻塞。具体到系统调用就是像 select/poll/epoll/kqueue 这样的系统调用。它们提供了一种机制，让你可以同时监控多个事件，调用他们是阻塞的，但可以设置超时时间，在超时时间之内，如果有事件准备好了，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-08T13:33:42.574Z">
+<meta property="og:updated_time" content="2018-05-11T14:03:10.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go 基础">
-<meta name="twitter:description" content="Go语言编程学习笔记基础介绍起源go语言为静态语言GOPATH项目目录结构go buildgo testgo rungo install">
+<meta name="twitter:title" content="nginx初探">
+<meta name="twitter:description" content="进程模型一个master进程，CPU个数个worker工作进程 减少内存使用和切换开销独立工作，互不影响抢accept_mutex，抢到后worker开始处理 高并发如何处理事件？异步非阻塞。具体到系统调用就是像 select/poll/epoll/kqueue 这样的系统调用。它们提供了一种机制，让你可以同时监控多个事件，调用他们是阻塞的，但可以设置超时时间，在超时时间之内，如果有事件准备好了，">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://buptwxt.github.io/2018/03/25/Go基础/"/>
+  <link rel="canonical" href="http://buptwxt.github.io/2018/05/11/nginx初探/"/>
 
 
 
 
 
-  <title>Go 基础 | Wang</title>
+  <title>nginx初探 | Wang</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/03/25/Go基础/">
+    <link itemprop="mainEntityOfPage" href="http://buptwxt.github.io/2018/05/11/nginx初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="喜糖">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go 基础</h1>
+          <h1 class="post-title" itemprop="name headline">nginx初探</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T22:45:24+08:00">
-                2018-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T21:50:15+08:00">
+                2018-05-11
               </time>
             
 
@@ -354,38 +354,12 @@
       
 
       
-        <h1 id="Go语言编程学习笔记"><a href="#Go语言编程学习笔记" class="headerlink" title="Go语言编程学习笔记"></a>Go语言编程学习笔记</h1><h2 id="基础介绍"><a href="#基础介绍" class="headerlink" title="基础介绍"></a>基础介绍</h2><p>起源<br>go语言为静态语言<br>GOPATH<br>项目目录结构<br>go build<br>go test<br>go run<br>go install</p>
-<a id="more"></a>
-<h3 id="语言特性"><a href="#语言特性" class="headerlink" title="语言特性"></a>语言特性</h3><p>自动垃圾回收<br>丰富的内置类型<br>函数多返回值<br>错误处理<br>匿名函数和闭包<br>类型和接口<br>并发编程<br>反射<br>语言交互性</p>
-<h2 id="顺序编程"><a href="#顺序编程" class="headerlink" title="顺序编程"></a>顺序编程</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>申请和初始化<br>var (<br>    i int<br>    j int<br>)<br>a := 10<br>赋值<br>i, j = j, i<br>_ (匿名变量)</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量是无类型<br>const<br>编译期行为<br>true false iota<br>iota碰见const就初始为0，自动增长</p>
-<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p> 不支持enum<br> 通过const ()实现<br> 大写字母开头常量，包外可见；小写字母开头常量，包内可见</p>
-<h3 id="丰富类型"><a href="#丰富类型" class="headerlink" title="丰富类型"></a>丰富类型</h3><p>####bool 不支持支持或者强制转换</p>
-<p>####int和int32不是一个类型，编译器不会自动转换<br>不同类型整数不能直接比较<br>^a a取反（~a： C类型取反）<br>fvalue2 := 12.0 推倒为float64</p>
-<p>####浮点型比较方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// p 为用户定义比较精度，例如：0.00001</span><br><span class="line">import &quot;math&quot;</span><br><span class="line">func IsEqual(f1, f2, p float64) bool&#123;</span><br><span class="line">    return math.Fdim(f1, f2) &lt; p</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>####复数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">complex64</span><br><span class="line">complex(a, b)</span><br><span class="line">a + bi</span><br><span class="line">real() image()</span><br><span class="line">math/cmplx 库</span><br></pre></td></tr></table></figure></p>
-<p>####字符串<br>len()<br>标准支持 UTF-8 和 Unicode编码<br>strings 库</p>
-<p>rune Unicode unicode包 unicode/utf8<br>byte UTF8 </p>
-<p>####数组<br>var myarray [10]int = [10]int{1,2,3..}<br>myarray := [10]int{1,2,3..}<br>range 数组</p>
-<p>####数组切片<br>类似vector<br>依据数组创建<br>依据make() 创建<br>提前分配好容量<br>cap()<br>len()<br>append()  …<br>new2 = append( new2, newSlice… )<br>取切片的值范围，只要不超过cap()返回值<br>copy() //按照较小切片复制</p>
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">type PersonInfo struct&#123;</span><br><span class="line">    ID string</span><br><span class="line">    Name string</span><br><span class="line">    Address string</span><br><span class="line">&#125;</span><br><span class="line">func main()&#123;</span><br><span class="line">	var personDB map[string] PersonInfo</span><br><span class="line">    personDB = make(map[string] PersonInfo)</span><br><span class="line"></span><br><span class="line">    personDB[&quot;12345&quot;] = PersonInfo&#123;&quot;12345&quot;, &quot;Tom&quot;, &quot;Room&quot;&#125;</span><br><span class="line">    person, ok := personDB[&quot;12345&quot;]</span><br><span class="line">    if ok &#123;</span><br><span class="line">        fmt.Println(person)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        fmt.Println(&quot;not found&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>声明变量<br>make() 创建<br>delete() 删除<br>查找</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p>选择语句多了select<br>循环语句少了while多了range</p>
-<p>if else if else<br>注意语法格式，与C有差别<br>最终返回值不能再if语句中,可以直接return（代表异常退出）</p>
-<p>switch 注意语法<br>fallthrough<br>case 多个<br>不会穿透<br>switch 后可以不跟表达式，而将表达式放在case语句中</p>
-<p>for<br>赋值多个变量<br>break 可以选择中断哪一个循环</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>小写大写名字区别<br>不定参数<br>不定参数传递<br>任意类型不定参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func MyPrintf(args ... interface&#123;&#125;)&#123;</span><br><span class="line">    for _, arg := range args&#123;</span><br><span class="line">        switch arg.(type)&#123;</span><br><span class="line">        case int:</span><br><span class="line">            fmt.Println(&quot;int&quot;)</span><br><span class="line">        case string:</span><br><span class="line">            fmt.Println(&quot;string&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多返回值<br>匿名函数 与 C回调函数对比</p>
-<ul>
-<li>闭包<br>包含自由变量的代码块<br>闭包可以引用函数外的变量</li>
-</ul>
-<p>defer 关键字<br>程序异常时，被defer修饰的句子被执行，栈调用过程，defer还可以修饰函数</p>
-<pre><code>defer func(){
-    fmt.Println(&quot;defer&quot;)
-}()
-</code></pre><p>panic()<br>正常的函数执行流程立刻终止，defer修饰的部分正常执行，函数返回到调用函数，并逐层向上执行panic。直到所属goroutine中所有正在执行函数终止。<br>recover()<br>终止错误处理流程，常用于defer修饰的函数</p>
-<h4 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h4><p>flag包</p>
-<p>go 函数 返回值 还需要定义吗？</p>
+        <h2 id="进程模型"><a href="#进程模型" class="headerlink" title="进程模型"></a>进程模型</h2><p>一个master进程，CPU个数个worker工作进程</p>
+<p>减少内存使用和切换开销<br>独立工作，互不影响<br>抢accept_mutex，抢到后worker开始处理</p>
+<h2 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h2><p>如何处理事件？<br>异步非阻塞。<br>具体到系统调用就是像 select/poll/epoll/kqueue 这样的系统调用。它们提供了一种机制，让你可以同时监控多个事件，调用他们是阻塞的，但可以设置超时时间，在超时时间之内，如果有事件准备好了，就返回。这种机制正好解决了我们上面的两个问题，拿 epoll 为例(在后面的例子中，我们多以 epoll 为例子，以代表这一类函数)，当事件没准备好时，放到 epoll 里面，事件准备好了，我们就去读写，当读写返回 EAGAIN 时，我们将它再次加入到 epoll 里面。这样，只要有事件准备好了，我们就去处理它，只有当所有事件都没准备好时，才在 epoll 里面等着。这样，我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个了，只是在请求间进行不断地切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价，你可以理解为循环处理多个准备好的事件，事实上就是这样的。与多线程相比，这种事件处理方式是有很大的优势的，不需要创建线程，每个请求占用的内存也很少，没有上下文切换，事件处理非常的轻量级。并发数再多也不会导致无谓的资源浪费（上下文切换）。</p>
+<p>CPU绑定<br>4个字节的字符串比较时转换为int</p>
+<p>信号？<br>信号会中断掉程序当前的运行，在改变状态后，继续执行。如果是系统调用，则可能会导致系统调用的失败，需要重入。关于信号的处理，大家可以学习一些专业书籍，这里不多说。对于 Nginx 来说，如果nginx正在等待事件（epoll_wait 时），如果程序收到信号，在信号处理函数处理完后，epoll_wait 会返回错误，然后程序可再次进入 epoll_wait 调用。</p>
+<p>定时器？<br>定时器事件是放在一颗维护定时器的红黑树里面，每次在进入 epoll_wait前，先从该红黑树里面拿到所有定时器事件的最小时间，在计算出 epoll_wait 的超时时间后进入 epoll_wait。所以，当没有事件产生，也没有中断信号时，epoll_wait 会超时，也就是说，定时器事件到了。这时，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件。</p>
 
       
     </div>
@@ -403,7 +377,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GO/" rel="tag"># GO</a>
+            <a href="/tags/Nginx-高性能/" rel="tag"># Nginx 高性能</a>
           
         </div>
       
@@ -416,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/18/Linux-进程基本知识/" rel="next" title="Linux 进程基本知识">
-                <i class="fa fa-chevron-left"></i> Linux 进程基本知识
+              <a href="/2018/04/21/查看当前使用的shell/" rel="next" title="查看当前使用的shell">
+                <i class="fa fa-chevron-left"></i> 查看当前使用的shell
               </a>
             
           </div>
@@ -426,8 +400,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/26/Go面向对象/" rel="prev" title="Go 面向对象">
-                Go 面向对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/TCP自问自答/" rel="prev" title="TCP自问自答">
+                TCP自问自答 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言编程学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Go语言编程学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础介绍"><span class="nav-number">1.1.</span> <span class="nav-text">基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">语言特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序编程"><span class="nav-number">1.2.</span> <span class="nav-text">顺序编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">1.2.2.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举"><span class="nav-number">1.2.3.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#丰富类型"><span class="nav-number">1.2.4.</span> <span class="nav-text">丰富类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">1.2.5.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.2.6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用包"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">常用包</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程模型"><span class="nav-number">1.</span> <span class="nav-text">进程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高并发"><span class="nav-number">2.</span> <span class="nav-text">高并发</span></a></li></ol></div>
             
 
           </div>

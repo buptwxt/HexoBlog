@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux常用命令," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="喜糖的博客">
+<meta name="description" content="文本处理相关命令sort-u 仅仅忽略连续相同的行-n 数字-r 逆序-k 比较域-t 分割符号-s 稳定，以最后的排序规则稳定1sort -k1 file.txt | sort -s k2 file.txt 一定是file的field 2稳定不变后再排序field 1">
+<meta name="keywords" content="Linux常用命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="需要熟练使用的Linux命令">
 <meta property="og:url" content="http://buptwxt.github.io/2018/07/29/需要熟练使用的Linux命令/index.html">
 <meta property="og:site_name" content="Wang">
-<meta property="og:description" content="喜糖的博客">
+<meta property="og:description" content="文本处理相关命令sort-u 仅仅忽略连续相同的行-n 数字-r 逆序-k 比较域-t 分割符号-s 稳定，以最后的排序规则稳定1sort -k1 file.txt | sort -s k2 file.txt 一定是file的field 2稳定不变后再排序field 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T01:23:36.724Z">
+<meta property="og:updated_time" content="2018-07-29T09:43:05.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="需要熟练使用的Linux命令">
-<meta name="twitter:description" content="喜糖的博客">
+<meta name="twitter:description" content="文本处理相关命令sort-u 仅仅忽略连续相同的行-n 数字-r 逆序-k 比较域-t 分割符号-s 稳定，以最后的排序规则稳定1sort -k1 file.txt | sort -s k2 file.txt 一定是file的field 2稳定不变后再排序field 1">
 
 
 
@@ -304,6 +305,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -331,7 +354,21 @@
       
 
       
-        
+        <h1 id="文本处理相关命令"><a href="#文本处理相关命令" class="headerlink" title="文本处理相关命令"></a>文本处理相关命令</h1><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>-u 仅仅忽略连续相同的行<br>-n 数字<br>-r 逆序<br>-k 比较域<br>-t 分割符号<br>-s 稳定，以最后的排序规则稳定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -k1 file.txt | sort -s k2 file.txt</span><br></pre></td></tr></table></figure></p>
+<p>一定是file的field 2稳定不变后再排序field 1<br><a id="more"></a></p>
+<h2 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h2><p>配合sort使用<br>-u 输出不重复行<br>-d 输出重复行<br>-c 统计次数</p>
+<h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><p>-c 指定选取的字符<br>-f 指定选取的域<br>-d 分隔符<br>–complement 反选<br>n1-n2 选取范围从n1到n2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -f1-3 -d&quot; &quot; file.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="paste"><a href="#paste" class="headerlink" title="paste"></a>paste</h2><ul>
+<li>格式制定<br>-d 分割符号<br>-s 转置<br>cat b | paste - -</li>
+</ul>
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><p>-j 1 制定域作为分割<br>-1 2 以1文件FIELD 2作为匹配<br>-2 3 以2文件FIELD 3作为匹配<br>-o 1.1 输出1文件1列<br>-v 1 仅仅显示没有匹配上的文件1的信息<br>-v 1 显示匹配上的和没有匹配上的文件1的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">join file1 file2 | join - file3 | join - file4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat a b | sort | uniq &gt; c</span><br><span class="line">cat a b | sort | uniq -d &gt; c</span><br><span class="line">cat a b b | sort | uniq -u &gt; c</span><br></pre></td></tr></table></figure>
+<h2 id="shuf"><a href="#shuf" class="headerlink" title="shuf"></a>shuf</h2><p>随机输出文件中的文本行</p>
+<h2 id="strings"><a href="#strings" class="headerlink" title="strings"></a>strings</h2><p>-a 扫描整个文件<br>-f 显示文件名</p>
+<h2 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h2><h2 id="split"><a href="#split" class="headerlink" title="split"></a>split</h2><p>-d 数字后缀<br>-b 块大小<br>-l 列</p>
+<p>csplit<br>{*} 分割次数<br>-s 不打印输出<br>-n 指定后缀数字个数<br>-f 指定文件名前缀<br>-b 指定后缀格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csplit server.log /SERVER/ -n2 -s &#123;*&#125; -f server -b &quot;%02d.log&quot;; rm server00.log</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -345,6 +382,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux常用命令/" rel="tag"># Linux常用命令</a>
+          
+        </div>
       
 
       
@@ -415,8 +458,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -453,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -483,6 +535,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文本处理相关命令"><span class="nav-number">1.</span> <span class="nav-text">文本处理相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sort"><span class="nav-number">1.1.</span> <span class="nav-text">sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uniq"><span class="nav-number">1.2.</span> <span class="nav-text">uniq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cut"><span class="nav-number">1.3.</span> <span class="nav-text">cut</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paste"><span class="nav-number">1.4.</span> <span class="nav-text">paste</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join"><span class="nav-number">1.5.</span> <span class="nav-text">join</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shuf"><span class="nav-number">1.6.</span> <span class="nav-text">shuf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strings"><span class="nav-number">1.7.</span> <span class="nav-text">strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iconv"><span class="nav-number">1.8.</span> <span class="nav-text">iconv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">1.9.</span> <span class="nav-text">split</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
